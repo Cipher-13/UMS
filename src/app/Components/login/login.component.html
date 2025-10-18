@@ -10,33 +10,30 @@
     </div>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-      
-      <!-- Email Field -->
+
+      <!-- username Field -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" id="email" placeholder="Enter your email" formControlName="email">
+        <mat-label>User</mat-label>
+        <input matInput type="text" id="user" placeholder="Enter your username" formControlName="username">
         <mat-icon matSuffix>email</mat-icon>
 
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-           email is required
-        </mat-error>
-        <mat-error *ngIf="loginForm.get('email')?.hasError('minlength')">
-          Email must be at least 8 characters
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+           This Field Can't Be Empty
         </mat-error>
       </mat-form-field>
 
       <!-- Password Field -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Password</mat-label>
-        <input matInput [type]="IsHide ? 'password' : 'text'" id="password" placeholder="Enter your password" formControlName="pass">
+        <input matInput [type]="IsHide ? 'password' : 'text'" id="password" placeholder="Enter your password" formControlName="password">
         <button mat-icon-button matSuffix type="button" (click)="IsHide = !IsHide">
           <mat-icon>{{ IsHide ? 'visibility' : 'visibility_off' }}</mat-icon>
         </button>
 
-        <mat-error *ngIf="loginForm.get('pass')?.hasError('required')">
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
           Password is required
         </mat-error>
-        <mat-error *ngIf="loginForm.get('pass')?.hasError('pattern')">
+        <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
           Password must contain 8+ chars with letters and numbers
         </mat-error>
       </mat-form-field>

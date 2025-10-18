@@ -12,24 +12,19 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      email: ['', [
+      username: [null, [Validators.required]],
+      password: [null, [
         Validators.required,
-        Validators.email,
-        Validators.minLength(8)
-      ]],
-      pass: ['', [
-        Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/) // 8+ letters & numbers
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,20}$/)
       ]]
     });
   }
 
   onSubmit(form: FormGroup) {
     if (form.valid) {
-      const { email, pass } = form.value;
-      console.log('Login Data:', { email, pass });
-      // You can call your API service here
-      // this.authService.login(email, pass).subscribe(...)
+      //const { username, password } = form.value;
+      console.log(form.value);
+      // this.authService.login(username, password).subscribe(...)
     } else {
       form.markAllAsTouched();
     }
