@@ -7,6 +7,17 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.success-snackbar {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.error-snackbar {
+  background-color: #f44336;
+  color: #fff;
+}
+
+
 .container {
   display: flex;
   justify-content: center;
